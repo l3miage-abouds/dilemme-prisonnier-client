@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dilemme-prisonnier-client';
+  constructor() {
+    console.log(environment.production); // Logs false for default environment
+  }
+
+  title = 'Dilemme prisonnier Application';
 }

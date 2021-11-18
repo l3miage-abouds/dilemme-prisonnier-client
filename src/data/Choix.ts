@@ -1,0 +1,4 @@
+enum Choix {
+  COOPERER,
+  TRAHIR
+}

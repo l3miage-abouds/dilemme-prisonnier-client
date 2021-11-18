@@ -1,11 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-dark my-5">
+        <div class="card-body">
+          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+          <ul class="text-center list-inline py-3">
+            <li class="list-inline-item">
+              <a routerLink="/users" class="btn btn-info">List Users</a>
+                </li>
+            <li class="list-inline-item">
+              <a routerLink="/adduser" class="btn btn-info">Add User</a>
+                </li>
+          </ul>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!--
 <header>
   <h1>
     Dilemme du prisonnier
   </h1>
 
-  <h3>
-    Connectez-vous : <input type="text" #nomJoueur/>
-    <button>Entrer</button>
-  </h3>
+  <div>
+    <button>Créer une partie</button><br>
+    <button>Rejoindre une partie</button><br>
+    <button>Quitter</button><br>
+  </div>
+
+  <br>
+
+  <div>
+    Username:<br>
+    <input type="text"/><br><br>
+    Nombre de tours:<br>
+    <input type="number"/>
+  </div>
+
+  <br>
+
+  <div>
+    <button>Coopérer</button>
+    <button>Trahir</button><br>
+    <button>Abandonner</button>
+  </div>
+
 </header>
 
+
+-->
