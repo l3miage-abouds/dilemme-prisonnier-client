@@ -1,0 +1,28 @@
+<div *ngIf="!entrerIsClicked" class="card-title text-center text-white py-3">
+  <input type="text" [(ngModel)]="joueur.username">
+  <button class="btn btn-info"
+    (click)="entrerIsClicked=!entrerIsClicked; createJoueur(joueur)">Entrer</button>
+  <br><br>
+</div>
+
+<div *ngIf="entrerIsClicked">
+  <ul class="text-center list-inline py-3">
+    <li class="list-inline-item">
+      <button class="btn btn-info"
+        (click)="createIsClicked=!createIsClicked"
+        (click)="joinIsClicked=false">Créer Rencontre</button>
+    </li>
+    <li class="list-inline-item">
+      <a routerLink="/joueurJoinsRencontre" class="btn btn-info"
+      (click)="joinIsClicked=!joinIsClicked"
+      (click)="createIsClicked=false">Rejoindre Rencontre</a>
+    </li>
+  </ul>
+
+  <div *ngIf="createIsClicked">
+    <app-rencontre-creation [joueur]="joueur"></app-rencontre-creation>
+  </div>
+  <div *ngIf="joinIsClicked">
+    <app-rencontre-join></app-rencontre-join>
+  </div>
+</div>

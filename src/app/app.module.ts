@@ -1,27 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './userlist/userlist.component';
-import { UserFormComponent } from './userform/userform.component';
-import { UserService } from './services/user.service';
+import { RencontreCreationComponent } from './rencontre-creation/rencontre-creation.component';
+import { RencontreJoinComponent } from './rencontre-join/rencontre-join.component';
+import { JoueurService } from './services/joueur.service';
+import { RencontreService } from './services/rencontre.service';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserFormComponent
+    RencontreCreationComponent,
+    RencontreJoinComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [JoueurService, RencontreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

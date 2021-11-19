@@ -1,6 +1,8 @@
+import { Choix } from "./Choix";
+import { ChoixStrategie } from "./ChoixStrategie";
+
 export interface Joueur {
-  numJoueur: number,
-  username: string,
-  strategie: ChoixStrategie,
-  coupsPrecedents: ChoixStrategie[]
+  username?: string,
+  strategie?: ChoixStrategie,
+  coupsPrecedents?: Choix[]
 }

@@ -1,0 +1,20 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" style="width: 15%;">#</th>
+          <th scope="col" style="width: 70%;">Joueurs</th>
+          <th scope="col" style="width: 15%;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rencontre of rencontres">
+          <td>{{ rencontre?.id }}</td>
+          <td>{{ rencontre?.j1?.username }}, {{ rencontre?.j2?.username }}</td>
+          <td><button class="btn btn-info">Join ▶️</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

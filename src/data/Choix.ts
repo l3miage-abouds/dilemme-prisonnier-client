@@ -1,4 +1,4 @@
-enum Choix {
+export enum Choix {
   COOPERER,
   TRAHIR
 }
