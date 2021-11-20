@@ -1,4 +1,4 @@
-<div class="card my-5">
+<div *ngIf="!aChoisiRencontre" class="card my-5">
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
@@ -12,9 +12,15 @@
         <tr *ngFor="let rencontre of rencontres">
           <td>{{ rencontre?.id }}</td>
           <td>{{ rencontre?.j1?.username }}, {{ rencontre?.j2?.username }}</td>
-          <td><button class="btn btn-info">Join ▶️</button></td>
+          <td><button class="btn btn-info"
+                (click)="updateRencontre(rencontre); rencontreChoisie=rencontre; aChoisiRencontre=true"
+                [disabled]="(rencontre.j1.username.length>0)&&(rencontre?.j2?.username.length>0)">Join ▶️</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
+
+<div *ngIf="aChoisiRencontre">
+  <app-game [joueur]="joueur" [rencontre]="rencontreChoisie"></app-game>
 </div>

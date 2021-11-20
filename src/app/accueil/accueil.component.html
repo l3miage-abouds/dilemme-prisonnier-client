@@ -10,12 +10,12 @@
     <li class="list-inline-item">
       <button class="btn btn-info"
         (click)="createIsClicked=!createIsClicked"
-        (click)="joinIsClicked=false">Créer Rencontre</button>
+        (click)="joinIsClicked=false" [disabled]="createIsClicked || joinIsClicked">Créer Rencontre</button>
     </li>
     <li class="list-inline-item">
-      <a routerLink="/joueurJoinsRencontre" class="btn btn-info"
+      <button class="btn btn-info"
       (click)="joinIsClicked=!joinIsClicked"
-      (click)="createIsClicked=false">Rejoindre Rencontre</a>
+      (click)="createIsClicked=false" [disabled]="createIsClicked || joinIsClicked">Rejoindre Rencontre</button>
     </li>
   </ul>
 
@@ -23,6 +23,6 @@
     <app-rencontre-creation [joueur]="joueur"></app-rencontre-creation>
   </div>
   <div *ngIf="joinIsClicked">
-    <app-rencontre-join></app-rencontre-join>
+    <app-rencontre-join [joueur]="joueur"></app-rencontre-join>
   </div>
 </div>

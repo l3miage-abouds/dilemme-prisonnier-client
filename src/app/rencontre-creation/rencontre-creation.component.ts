@@ -15,6 +15,7 @@ export class RencontreCreationComponent implements OnInit {
   rencontre: Rencontre = {
     nbTours: 0
   }
+  rencontreCreated: boolean = false;
 
   constructor(private rencontreService: RencontreService) {
   }
@@ -24,7 +25,7 @@ export class RencontreCreationComponent implements OnInit {
   }
 
   createRencontre(r: Rencontre) {
-    this.rencontreService.save(r).subscribe();
+    this.rencontreService.addRencontre(r).subscribe();
   }
 
 }

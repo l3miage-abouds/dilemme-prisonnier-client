@@ -18,12 +18,20 @@ export class RencontreService {
     return this.http.get<Rencontre[]>(this.rencontresUrl);
   }
 
-  public save(rencontre: Rencontre) {
+  public findById(id: number): Observable<Rencontre> {
+    return this.http.get<Rencontre>(`${this.rencontresUrl}/${id}`);
+  }
+
+  public addRencontre(rencontre: Rencontre) {
     console.log("create rencontre");
     console.log(rencontre);
     return this.http.post<Rencontre>(this.rencontresUrl, rencontre);
   }
 
-  /* update */
+  public updateRencontre(rencontre: Rencontre) {
+    console.log("update rencontre");
+    console.log(rencontre);
+    return this.http.put<Rencontre>(this.rencontresUrl, rencontre);
+  }
 }
 

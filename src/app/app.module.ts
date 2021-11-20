@@ -8,6 +8,7 @@ import { RencontreJoinComponent } from './rencontre-join/rencontre-join.componen
 import { JoueurService } from './services/joueur.service';
 import { RencontreService } from './services/rencontre.service';
 import { AccueilComponent } from './accueil/accueil.component';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AccueilComponent } from './accueil/accueil.component';
     AppComponent,
     RencontreCreationComponent,
     RencontreJoinComponent,
-    AccueilComponent
+    AccueilComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,

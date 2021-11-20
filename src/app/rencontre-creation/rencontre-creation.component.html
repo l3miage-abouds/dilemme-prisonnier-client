@@ -1,8 +1,13 @@
-<div class="card my-5">
+<div *ngIf="!rencontreCreated" class="card my-5 text-center list-inline py-3">
   <div class="card-body">
-    <input type="number" [(ngModel)]="rencontre.nbTours">
+    Nombre de tours: <input type="number" [(ngModel)]="rencontre.nbTours"><br><br>
     <button class="btn btn-info"
-      (click)="createRencontre(rencontre)">Entrer</button>
+      (click)="createRencontre(rencontre); rencontreCreated=true"
+      [disabled]="rencontreCreated">Entrer</button>
     <br><br>
   </div>
+</div>
+
+<div *ngIf="rencontreCreated">
+  <app-game [joueur]="joueur" [rencontre]="rencontre"></app-game>
 </div>

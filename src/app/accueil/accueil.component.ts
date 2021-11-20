@@ -15,11 +15,31 @@ export class AccueilComponent {
   entrerIsClicked: boolean = false;
   createIsClicked: boolean = false;
   joinIsClicked: boolean = false;
+  choixRencontre: boolean = false;
+  cOrJ: string = "";
 
   constructor(private joueurService: JoueurService) { }
 
   createJoueur(j: Joueur) {
     this.joueurService.save(j).subscribe();
+  }
+
+  traiter() {
+    if (this.cOrJ === "c") {
+      this.createIsClicked=true;
+      this.choixRencontre=true;
+      this.joinIsClicked=false
+    }
+    else {
+      this.joinIsClicked=true;
+      this.choixRencontre=true;
+      this.createIsClicked=false;
+    }
+
+    console.log("entrerIsClicked: " + this.entrerIsClicked);
+    console.log("createIsClicked: " + this.createIsClicked);
+    console.log("joinIsClicked: " + this.joinIsClicked);
+    console.log("choixRencontre: " + this.choixRencontre);
   }
 
 }
