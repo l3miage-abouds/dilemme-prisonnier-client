@@ -2,17 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Rencontre } from 'src/data/Rencontre';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RencontreService {
 
-  private rencontresUrl: string;
+  private apiUrl: string = environment.apiUrl;
+  private rencontresUrl: string = this.apiUrl + "rencontres";
+  //private rencontresUrl = 'https://dilemme-prisonnier-serveur.herokuapp.com/rencontres'
 
-  constructor(private http: HttpClient) {
-    this.rencontresUrl = 'http://localhost:8080/rencontres';
-  }
+  constructor(private http: HttpClient) { }
 
   public findAll(): Observable<Rencontre[]> {
     return this.http.get<Rencontre[]>(this.rencontresUrl);

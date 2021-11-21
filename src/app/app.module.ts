@@ -9,6 +9,8 @@ import { JoueurService } from './services/joueur.service';
 import { RencontreService } from './services/rencontre.service';
 import { AccueilComponent } from './accueil/accueil.component';
 import { GameComponent } from './game/game.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TourComponent } from './tour/tour.component'
 
 
 @NgModule({
@@ -17,11 +19,13 @@ import { GameComponent } from './game/game.component';
     RencontreCreationComponent,
     RencontreJoinComponent,
     AccueilComponent,
-    GameComponent
+    GameComponent,
+    TourComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     FormsModule
   ],
   providers: [JoueurService, RencontreService],

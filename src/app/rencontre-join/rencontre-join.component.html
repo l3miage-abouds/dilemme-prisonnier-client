@@ -13,7 +13,7 @@
           <td>{{ rencontre?.id }}</td>
           <td>{{ rencontre?.j1?.username }}, {{ rencontre?.j2?.username }}</td>
           <td><button class="btn btn-info"
-                (click)="updateRencontre(rencontre); rencontreChoisie=rencontre; aChoisiRencontre=true"
+                (click)="updateRencontre(rencontre);"
                 [disabled]="(rencontre.j1.username.length>0)&&(rencontre?.j2?.username.length>0)">Join ▶️</button></td>
         </tr>
       </tbody>

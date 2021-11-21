@@ -25,7 +25,14 @@ export class RencontreJoinComponent implements OnInit {
 
   updateRencontre(r: Rencontre) {
     r.j2 = this.joueur;
-    this.rencontreService.updateRencontre(r).subscribe();
+    r.j2.coupsPrecedents = [];
+    r.tours = [];
+    this.rencontreService.updateRencontre(r).toPromise().then(
+      () => {
+        this.rencontreChoisie=r;
+        this.aChoisiRencontre=true;
+      }
+    );
   }
 
 }

@@ -1,22 +1,64 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card bg-dark my-5">
-        <div class="card-body">
-          <h2 class="card-title text-center text-white py-3">Bienvenue au Tribunal</h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item">
-              <button class="btn btn-success">Coopérer</button>
-            </li>
-            <li class="list-inline-item">
-              <button class="btn btn-info">Trahir</button>
-            </li>
-            <li class="list-inline-item">
-              <button class="btn btn-danger">Abandonner</button>
-            </li>
-          </ul>
+<div *ngIf="tour.numTour <= rencontre.nbTours">
+  <div *ngIf="!choixFait && !choixAdversaire && !abandonnerToggle" class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card bg-dark my-5">
+          <div class="card-body">
+            <h2 class="card-title text-center text-white py-3">Bienvenue au Tribunal</h2>
+            <div style="text-align: center; color: white;">
+              Rencontre entre: {{ rencontre?.j1?.username }} et {{ rencontre?.j2?.username }} <br>
+              Nombre de tours: {{ rencontre?.nbTours }} <br><br>
+              Tour no. {{ tour?.numTour }} <br>
+              Score : {{ rencontre?.scoreJ1 }} ➖ {{rencontre?.scoreJ2 }}
+            </div>
+            <ul class="text-center list-inline py-3">
+              <li class="list-inline-item">
+                <button class="btn btn-success" (click)="fusionFctCoop()">Coopérer</button>
+              </li>
+              <li class="list-inline-item">
+                <button class="btn btn-info" (click)="fusionFctTrahir()">Trahir</button>
+              </li>
+              <li class="list-inline-item">
+                <button class="btn btn-danger" (click)="abandonnerIsClicked=true;">Abandonner</button>
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="abandonnerIsClicked && !abandonnerToggle" class="card-body">
+            <h2 class="card-title text-center text-white py-3">Quelle Strategie Choisisez vous?</h2>
+            <ul class="text-center list-inline py-3">
+              <li class="list-inline-item">
+                <button class="btn btn-info" (click)="fusionFctDonnant()">Donnant Donnant</button>
+              </li>
+              <li class="list-inline-item">
+                <button class="btn btn-success" (click)="fusionFctTjrCooperer()">Toujours Cooperer</button>
+              </li>
+              <li class="list-inline-item">
+                <button class="btn btn-danger" (click)=" fusionFctTjrTrahir()">Toujours Trahir</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div *ngIf="choixFait && !choixAdversaire && abandonnerToggle" style="display: flex; align-items: center; justify-content: center;">
+    <span>[STRATEGIE AUTOMATIQUE] Vous avez joué {{joueur.coupsPrecedents[joueur.coupsPrecedents.length-1].toString()}}.</span><br>
+    <span>Veuillez attendre la décision de votre adversaire...</span>
+    <mat-spinner [diameter]="14"></mat-spinner>
+  </div>
+
+  <div *ngIf="choixFait && !choixAdversaire && !abandonnerToggle" style="display: flex; align-items: center; justify-content: center;">
+    <span>Vous avez joué {{joueur.coupsPrecedents[joueur.coupsPrecedents.length-1].toString()}}.</span><br>
+    <span>Veuillez attendre la décision de votre adversaire...</span>
+    <mat-spinner [diameter]="14"></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="tour.numTour > rencontre.nbTours">
+  <h1 style="text-align: center;">
+    Rencontre entre: {{ rencontre?.j1?.username }} et {{ rencontre?.j2?.username }} <br>
+    Score Final: {{ rencontre?.scoreJ1 }} ➖ {{rencontre?.scoreJ2 }} <br><br>
+    🎉 <b>Gagnant: {{ gagnant() }}</b> 🎉
+  </h1>
 </div>

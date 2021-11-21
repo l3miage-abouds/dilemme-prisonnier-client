@@ -7,5 +7,5 @@ export class Tour {
   choixJ2?: Choix;
   pointsJ1?: number;
   pointsJ2?: number;
-  etat?: number
+  idRencontre?: number
 }

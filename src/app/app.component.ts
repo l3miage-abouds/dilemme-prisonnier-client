@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Dilemme Prisonnier Application';
+  title = "APPLICATION - DILEMME DU PRISONIER ITÉRÉ";
 
   constructor() {
     console.log(environment.production); // Logs false for default environment

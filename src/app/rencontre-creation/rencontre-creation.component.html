@@ -1,5 +1,5 @@
-<div *ngIf="!rencontreCreated" class="card my-5 text-center list-inline py-3">
-  <div class="card-body">
+<div *ngIf="!rencontreCreated && !otherPlayerJoined" class="text-center list-inline py-3">
+  <div class="card-body" style="color: white;">
     Nombre de tours: <input type="number" [(ngModel)]="rencontre.nbTours"><br><br>
     <button class="btn btn-info"
       (click)="createRencontre(rencontre); rencontreCreated=true"
@@ -8,6 +8,11 @@
   </div>
 </div>
 
-<div *ngIf="rencontreCreated">
+<div *ngIf="rencontreCreated && !otherPlayerJoined" style="display: flex; align-items: center; justify-content: center;">
+  <span>En attente d'un deuxième joueur...</span>
+  <mat-spinner [diameter]="20"></mat-spinner>
+</div>
+
+<div *ngIf="rencontreCreated && otherPlayerJoined">
   <app-game [joueur]="joueur" [rencontre]="rencontre"></app-game>
 </div>
